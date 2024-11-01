@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+   <head>
+		<meta charset="utf-8">	<!-- določimo način kodiranja znakov v besedilu naloge -->
+		<title>Robotek-potrebuje-energijo </title> <!-- pod naslov zapišemo ime mape v kateri se nahajo datoteke za posamezno nalogo -->
+		<script>
+			window.stringsLanguage = 'sl'; //izberemo jezik za besedila ukazov in sporočil
+		</script>
+			
+		<!-- Tukaj kličemo knjižnice potrebne za delovanje spletne strani -->
+		<script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.4-mobileFirst.js" id="import-modules"></script> 
+		<!-- <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.5.js" id="import-modules"></script>  -->
+		<script class="remove" type="text/javascript">
+			var modulesPath = '../../../_common/modules/'
+			importModules([
+				'jquery-1.7.1', 'JSON-js', 'raphael-2.2.1', 'beaver-task-2.0', 'jschannel', 'raphaelFactory-1.0', 'delayFactory-1.0', 'simulationFactory-1.0',
+				'platform-pr', 'buttonsAndMessages', 'beav-1.0', 'installationAPI.01', 'miniPlatform',
+				'taskStyles-mobileFirst'/*'taskStyles-0.1'*/ ]);
+			importLanguageModules('blockly'); //nastavimo programski jezik Blockly
+		</script>
+			
+		<!-- Tukaj vodimo evidenco o nalogi -->
+		<script class="remove" type="text/javascript">
+			var json = {
+				"id": "",						//url naloge
+				"language": "sl",
+				"version": "sl.01",
+				"authors": "Martin Ristič",				//avtor
+				"translators": [],
+				"license": "",
+				"taskPathPrefix": "",
+				"modulesPathPrefix": "",
+				"browserSupport": [],
+				"fullFeedback": true,
+				"minWidth": "auto"
+			};
+		</script>
+			
+		<!-- Pot do grafik -->	
+		<script> var imgPath=""; </script>
+		<!-- Tukaj uvozimo knjiznico -->	
+		<script class="remove" type="text/javascript" src="blocklyRobot_lib.js" id="blocklyRobot_lib"></script>
+		<!-- Tukaj kličemo datoteko, kjer definiramo problem naloge -->		
+		<script type="text/javascript" src="task.js"></script>
+		<script>
+			// initWrapper(initTask, ["easy","medium","hard"], null, true);
+			initWrapper(initTask, null, null, true);
+		</script>
+    </head>
+    
+	<body onresize="task.displayedSubTask.updateScale()">
+		<div id="task">
+            <h1>Robotek potrebuje energijo </h1>  <!-- Naslov naloge -->
+			<div id="tabsContainer"></div>
+			<div id="taskContent">
+				<div id="taskIntro"> <!-- Besedilo naloge -->
+					<p>
+						Mali robotek je zaznal, da je v bližnjem laboratoriju dragoceni energetski kristal. Ker mu zmanjkuje energije, se je odpravil, da si jo pridobi. Na poti do kristala so bile nevarne oljne madeže, ki se jim je želel izogniti, saj bi mu povzročile zdrs. Med potjo je naletel na svetlobne signale, ki kažejo pravo smer. Napiši program in pomagaj lačnemu robotku Bibi priti do kristala, ne da bi zdrsnil na oljni madež. Pri tem naj sledi svetlobnim signalom, da ostane na pravi poti. 
+					</p>
+				</div>
+				<div id="gridContainer"></div>
+				<div id="blocklyLibContent"></div>
+			</div>
+		</div>
+    </body>
+</html>

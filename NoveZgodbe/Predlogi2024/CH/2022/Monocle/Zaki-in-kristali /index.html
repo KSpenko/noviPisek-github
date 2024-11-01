@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+   <head>
+		<meta charset="utf-8">	<!-- določimo način kodiranja znakov v besedilu naloge -->
+		<title>Zaki-in-kristali </title> <!-- pod naslov zapišemo ime mape v kateri se nahajo datoteke za posamezno nalogo -->
+		<script>
+			window.stringsLanguage = 'sl'; //izberemo jezik za besedila ukazov in sporočil
+		</script>
+			
+		<!-- Tukaj kličemo knjižnice potrebne za delovanje spletne strani -->
+		<script class="remove" type="text/javascript" src="../../../../../../_common/modules/pemFioi/importModules-1.4-mobileFirst.js" id="import-modules"></script> 
+		<!-- <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.5.js" id="import-modules"></script>  -->
+		<script class="remove" type="text/javascript">
+			var modulesPath = '../../../../../../_common/modules/'
+			importModules([
+				'jquery-1.7.1', 'JSON-js', 'raphael-2.2.1', 'beaver-task-2.0', 'jschannel', 'raphaelFactory-1.0', 'delayFactory-1.0', 'simulationFactory-1.0',
+				'platform-pr', 'buttonsAndMessages', 'beav-1.0', 'installationAPI.01', 'miniPlatform',
+				'taskStyles-mobileFirst'/*'taskStyles-0.1'*/ ]);
+			importLanguageModules('blockly'); //nastavimo programski jezik Blockly
+		</script>
+			
+		<!-- Tukaj vodimo evidenco o nalogi -->
+		<script class="remove" type="text/javascript">
+			var json = {
+				"id": "",						//url naloge
+				"language": "sl",
+				"version": "sl.01",
+				"authors": "Martin Ristič",				//avtor
+				"translators": [],
+				"license": "",
+				"taskPathPrefix": "",
+				"modulesPathPrefix": "",
+				"browserSupport": [],
+				"fullFeedback": true,
+				"minWidth": "auto"
+			};
+		</script>
+			
+		<!-- Pot do grafik -->	
+		<script> var imgPath=""; </script>
+		<!-- Tukaj uvozimo knjiznico -->	
+		<script class="remove" type="text/javascript" src="blocklyRobot_lib.js" id="blocklyRobot_lib"></script>
+		<!-- Tukaj kličemo datoteko, kjer definiramo problem naloge -->		
+		<script type="text/javascript" src="task.js"></script>
+		<script>
+			// initWrapper(initTask, ["easy","medium","hard"], null, true);
+			initWrapper(initTask, null, null, true);
+		</script>
+    </head>
+    
+	<body onresize="task.displayedSubTask.updateScale()">
+		<div id="task">
+            <h1>Zaki in kristali </h1>  <!-- Naslov naloge -->
+			<div id="tabsContainer"></div>
+			<div id="taskContent">
+				<div id="taskIntro"> <!-- Besedilo naloge -->
+					<p>
+						Mali zmajček Zaki je našel pot skozi čarobni gozd, kjer so raztreseni bleščeči kristali, ki mu dajejo moč za letenje. Da bo zbral dovolj kristalov za dolgo pot, mora paziti na vsak korak in preveriti, ali je pod njim kristal, preden ga pobere. 
+<br>
+Napiši program, ki bo Zaki pomagal zbrati vse kristale, vendar smeš v navodilih uporabiti le enkrat ukaz za premik naprej. Namig: uporabi zmajčkov senzor, da preveri, ali je spodaj kristal, preden ga pobere. 
+					</p>
+				</div>
+				<div id="gridContainer"></div>
+				<div id="blocklyLibContent"></div>
+			</div>
+		</div>
+    </body>
+</html>

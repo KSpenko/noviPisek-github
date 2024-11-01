@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+   <head>
+		<meta charset="utf-8">	<!-- določimo način kodiranja znakov v besedilu naloge -->
+		<title>Gasilec-Luka-resuje-macko</title> <!-- pod naslov zapišemo ime mape v kateri se nahajo datoteke za posamezno nalogo -->
+		<script>
+			window.stringsLanguage = 'sl'; //izberemo jezik za besedila ukazov in sporočil
+		</script>
+			
+		<!-- Tukaj kličemo knjižnice potrebne za delovanje spletne strani -->
+		<script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.4-mobileFirst.js" id="import-modules"></script> 
+		<!-- <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.5.js" id="import-modules"></script>  -->
+		<script class="remove" type="text/javascript">
+			var modulesPath = '../../../_common/modules/'
+			importModules([
+				'jquery-1.7.1', 'JSON-js', 'raphael-2.2.1', 'beaver-task-2.0', 'jschannel', 'raphaelFactory-1.0', 'delayFactory-1.0', 'simulationFactory-1.0',
+				'platform-pr', 'buttonsAndMessages', 'beav-1.0', 'installationAPI.01', 'miniPlatform',
+				'taskStyles-mobileFirst'/*'taskStyles-0.1'*/ ]);
+			importLanguageModules('blockly'); //nastavimo programski jezik Blockly
+		</script>
+			
+		<!-- Tukaj vodimo evidenco o nalogi -->
+		<script class="remove" type="text/javascript">
+			var json = {
+				"id": "",						//url naloge
+				"language": "sl",
+				"version": "sl.01",
+				"authors": "Martin Ristič",				//avtor
+				"translators": [],
+				"license": "",
+				"taskPathPrefix": "",
+				"modulesPathPrefix": "",
+				"browserSupport": [],
+				"fullFeedback": true,
+				"minWidth": "auto"
+			};
+		</script>
+			
+		<!-- Pot do grafik -->	
+		<script> var imgPath=""; </script>
+		<!-- Tukaj uvozimo knjiznico -->	
+		<script class="remove" type="text/javascript" src="blocklyRobot_lib.js" id="blocklyRobot_lib"></script>
+		<!-- Tukaj kličemo datoteko, kjer definiramo problem naloge -->		
+		<script type="text/javascript" src="task.js"></script>
+		<script>
+			// initWrapper(initTask, ["easy","medium","hard"], null, true);
+			initWrapper(initTask, null, null, true);
+		</script>
+    </head>
+    
+	<body onresize="task.displayedSubTask.updateScale()">
+		<div id="task">
+            <h1>Gasilec Luka rešuje mačko</h1>  <!-- Naslov naloge -->
+			<div id="tabsContainer"></div>
+			<div id="taskContent">
+				<div id="taskIntro"> <!-- Besedilo naloge -->
+					<p>
+						Mladi gasilec Luka je prejel nujen klic – v bližnji zgradbi je zagorelo, in nekje v njej je ujeta mačka. Luka se je takoj odpravil na pot, da reši mačko. Na poti do nje so bile nevarne luže olja in razbitin, ki se jim je želel izogniti, saj bi mu zdrs povzročil nevarnost. A na poti je naletel tudi na rdeče opozorilne luči, ki mu kažejo pravo smer. Napiši program in pomagaj Luku varno priti do mačke, ne da bi stopil na olje ali razbitine. Pri tem naj sledi opozorilnim lučem, da ostane na pravi poti. 
+					</p>
+				</div>
+				<div id="gridContainer"></div>
+				<div id="blocklyLibContent"></div>
+			</div>
+		</div>
+    </body>
+</html>
