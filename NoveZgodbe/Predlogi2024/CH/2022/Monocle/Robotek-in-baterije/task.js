@@ -15,9 +15,9 @@ function initTask(subTask) {
 		languageStrings: {
 			sl: {
 
-				label:{sensorBool:"Jajček spodaj"},//languegae za novi delček
-				code:{sensorBool:"JajcekSpodaj"},
-				description:{sensorBool:"Preveri ali se nahajamo na jajčku"},
+				label:{sensorBool:"Baterija spodaj"},//languegae za novi delček
+				code:{sensorBool:"BaterijaSpodaj"},
+				description:{sensorBool:"Preveri ali se nahajamo na Bateriji"},
 
 				startingBlockName: "Program",	
 				categories: {				
