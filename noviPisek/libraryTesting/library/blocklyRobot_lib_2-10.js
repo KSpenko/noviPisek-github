@@ -606,22 +606,12 @@ var getContext = function(display, infos) {
       var y = roundCellSide * item.row + roundTopMargin;
       
       if (item.img != undefined) {
-         if (item.img == ""){
-            item.element = this.props.paper.rect(
-               x, y, 
-               roundItemSide,
-               roundItemSide,
-               8,
-               ).attr({fill: 'none', stroke: 'none'});
-         }
-         else {
-            item.element = this.props.paper.image(
-               imgPath+item.img, 
-               x, y, 
-               roundItemSide * item.nbStates, 
-               roundItemSide
-            );
-            }
+         item.element = this.props.paper.image(
+            imgPath+item.img, 
+            x, y, 
+            roundItemSide * item.nbStates, 
+            roundItemSide
+         );
       }
       else if (item.colour != undefined) {
          item.element = this.props.paper.rect(
@@ -663,23 +653,18 @@ var getContext = function(display, infos) {
       
       if (item.dir != undefined) {
          var xClip = x;
-         var angle = 0;
          if(item.nbStates == 4){ // FUTURE test, dont know if it works??
             x = x - ( this.props.reduceDir[item.dir] * roundItemSide);
          }
          else if(item.nbStates > 1) x = x - (item.dir * roundItemSide);
-         else if(item.nbStates == 1) angle = 45 * item.dir - 90;
          // clipping image to display only one robot direction profile!
          var clipRect = "" + xClip + "," + y + "," + roundItemSide + "," + roundItemSide;
-         var transform = "r" + angle + "," + (x + roundItemSide / 2) + "," + (y + roundItemSide / 2);
-
          return {
             x: x+db/2, 
             y: y+db/2, 
             width: roundItemSide * item.nbStates-db,
             height: roundItemSide-db,
-            "clip-rect": clipRect,
-            transform: transform,
+            "clip-rect": clipRect
          };
       }
       else{
@@ -2074,7 +2059,6 @@ var getContext = function(display, infos) {
 var robotEndConditions = {
    checkItemExistence: function(context, lastTurn, filters, negfilters={}, exist=true, customMsgKey=undefined) {
       context.success = false;
-      console.log("Existance: ", exist);
       var items = context.getItems(undefined, undefined, filters, negfilters);
       if(exist) {
          if(items.length > 0){
@@ -2101,7 +2085,6 @@ var robotEndConditions = {
    },
    checkItemCoincidence: function(context, lastTurn, filtersA, filtersB, keys=[], negfiltersA={}, negfiltersB={}, customMsgKey=undefined) {
       context.success = false;
-      console.log("checkItemCoincidence: ", customMsgKey);
       
       var itemsA = context.getItems(undefined, undefined, filtersA, negfiltersA, includeTrans=true);
       var itemsB = context.getItems(undefined, undefined, filtersB, negfiltersB, includeTrans=true);
